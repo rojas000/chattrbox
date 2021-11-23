@@ -10,6 +10,11 @@
     "build": "parcel build --no-minify app/scripts/src/main.js -d app/scripts/dist",
     "watch": "parcel watch app/scripts/src/main.js -d app/scripts/dist"
   },
+  "browserify": {
+    "transform": [
+      ["babelify", {"presets": ["es2015"], "sourceMap": true}]
+    ]
+  },
   "author": "",
   "license": "ISC",
   "dependencies": {
