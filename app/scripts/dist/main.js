@@ -16873,6 +16873,7 @@ var ChatList = /*#__PURE__*/function () {
           var $element = (0, _jquery.default)(element);
           var timestamp = new Date().setTime($element.attr('data-time'));
           var ago = (0, _moment.default)(timestamp).fromNow();
+          console.log("check: " + ago);
           $element.html(ago);
         });
       }, 1000);
@@ -16930,14 +16931,14 @@ var ChatApp = function ChatApp() {
 
       _wsClient.default.sendMessage(message.toObj());
     });
+
+    _this.chatList.init();
   });
 
   _wsClient.default.registerMessageHandler(function (data) {
     console.log('in registerMessageHandler, sending mesage...');
-    console.log(data); // Create a new instance of `ChatMessage` with the incoming data from the
-    // WebSockets server
-
-    var message = new ChatMessage(data); // then, call this.chatList.drawMessage() with the new message instance
+    console.log(data);
+    var message = new ChatMessage(data);
 
     _this.chatList.drawMessage(message.toObj());
   });

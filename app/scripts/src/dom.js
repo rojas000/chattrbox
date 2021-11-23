@@ -85,6 +85,7 @@ export class ChatList {
             let $element = $(element);
             let timestamp = new Date().setTime($element.attr('data-time'));
             let ago = moment(timestamp).fromNow();
+            console.log("check: " + ago);
             $element.html(ago);
         });
     }, 1000);
